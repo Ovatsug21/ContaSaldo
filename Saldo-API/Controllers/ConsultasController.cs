@@ -16,10 +16,19 @@ namespace Saldo_API.Controllers
             _consultasServices = consultasServices;
         }
 
-/*        [HttpGet]
-        public async Task<Consulta>> GetAsync(int id)
+        [HttpGet]
+        public async Task<ActionResult> GetByIdAsync(int id)
+
         {
-            var consulta = await _consultasServices.GetAsync(id);
-        }*/
+            var result = await _consultasServices.GetByIdAsync(id);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
     }
 }

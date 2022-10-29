@@ -16,7 +16,7 @@ namespace Saldo_API.Services
             _saldoCollection = mongoDataBase.GetCollection<Consulta>(consultasServices.Value.CollectionName);
         }
 
-        public async Task<List<Consulta>> GetAsync( int id) =>
+        public async Task<List<Consulta>> GetByIdAsync( int id) =>
             await _saldoCollection.Find(x => x.IdUsuario == id).ToListAsync();
     }
 }
